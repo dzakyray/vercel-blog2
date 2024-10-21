@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Tag</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto mt-8">
+        <h1 class="text-2xl font-bold mb-4">Daftar Tag</h1>
+        <ul class="list-disc pl-5">
+            {% for tag in tags %}
+                <li class="mb-2">
+                    <a href="{% url 'blog:post_list_by_tag' tag.slug %}" class="text-blue-500 hover:underline">{{ tag.name }}</a>
+                </li>
+            {% empty %}
+                <p class="text-red-500">Tidak ada tag.</p>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
